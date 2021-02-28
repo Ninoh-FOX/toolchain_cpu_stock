@@ -1,0 +1,4 @@
+title=RG280M test
+description=Test your RG280M
+icon=skin:icons/rg280mtest.png
+exec=/usr/share/rg280mtest/rg280mtest.gcw
