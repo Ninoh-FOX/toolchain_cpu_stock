@@ -1,6 +1,6 @@
---- ./src/gmenu2x.cpp	2021-02-28 01:25:43.000000000 +0100
-+++ ./src/gmenu2x_mod.cpp	2021-02-28 11:05:32.992815031 +0100
-@@ -197,11 +197,11 @@
+--- ./src/gmenu2x.cpp	2021-01-06 18:06:45.161349909 +0100
++++ ./src/gmenu2x_mod.cpp	2021-02-28 13:37:20.264120028 +0100
+@@ -197,12 +197,12 @@
  	//       The NanoNote does not have cpufreq enabled in its kernel and
  	//       other devices are not actively maintained.
  	// TODO: Read min and max from sysfs.
@@ -9,25 +9,36 @@
 -	cpuFreqSafeMax = 1080;
 -	cpuFreqMenuDefault = 360;   // para RG350, antes 200
 -	cpuFreqAppDefault = 1080;
-+	cpuFreqMin = 340;     // para RG350, antes 360
-+	cpuFreqMax = 1000;    // para RG350, antes 996
-+	cpuFreqSafeMax = 1000;
-+	cpuFreqMenuDefault = 340;   // para RG350, antes 360
-+	cpuFreqAppDefault = 1000;
- 	cpuFreqMultiple = 20;
+-	cpuFreqMultiple = 20;
++	cpuFreqMin = 332;     // para RG350, antes 360
++	cpuFreqMax = 996;    // para RG350, antes 1080
++	cpuFreqSafeMax = 996;
++	cpuFreqMenuDefault = 332;   // para RG350, antes 360
++	cpuFreqAppDefault = 996;
++/*	cpuFreqMultiple = 20;
  
  	// Round min and max values to the specified multiple.
+ 	cpuFreqMin = ((cpuFreqMin + cpuFreqMultiple - 1) / cpuFreqMultiple)
+@@ -210,7 +210,7 @@
+ 	cpuFreqMax = (cpuFreqMax / cpuFreqMultiple) * cpuFreqMultiple;
+ 	cpuFreqSafeMax = (cpuFreqSafeMax / cpuFreqMultiple) * cpuFreqMultiple;
+ 	cpuFreqMenuDefault = (cpuFreqMenuDefault / cpuFreqMultiple) * cpuFreqMultiple;
+-	cpuFreqAppDefault = (cpuFreqAppDefault / cpuFreqMultiple) * cpuFreqMultiple;
++	cpuFreqAppDefault = (cpuFreqAppDefault / cpuFreqMultiple) * cpuFreqMultiple; */
+ }
+ #endif
+ 
 @@ -810,11 +810,11 @@
  	sd.addSetting(unique_ptr<MenuSetting>(new MenuSettingInt(
  			this, ts, tr["Clock for GMenu2X"],
  			tr["Set the cpu working frequency when running GMenu2X"],
 -			&confInt["menuClock"], cpuFreqMin, cpuFreqSafeMax, 720)));  // se pone a mano 720 en vez de cpuFreqMultiple, para OBTENER sólo Min o Max (360,1080)
-+			&confInt["menuClock"], cpuFreqMin, cpuFreqSafeMax, 660)));  // se pone a mano 660 en vez de cpuFreqMultiple, para OBTENER sólo Min o Max (340,1000)
++			&confInt["menuClock"], cpuFreqMin, cpuFreqSafeMax, 664)));  // se pone a mano 660 en vez de cpuFreqMultiple, para OBTENER sólo Min o Max (332,996)
  	sd.addSetting(unique_ptr<MenuSetting>(new MenuSettingInt(
  			this, ts, tr["Maximum overclock"],
  			tr["Set the maximum overclock for launching links"],
 -			&confInt["maxClock"], cpuFreqMin, cpuFreqMax, 720)));       // se pone a mano 720 en vez de cpuFreqMultiple, para OBTENER sólo Min o Max  (360,1080)
-+			&confInt["maxClock"], cpuFreqMin, cpuFreqMax, 660)));       // se pone a mano 660 en vez de cpuFreqMultiple, para OBTENER sólo Min o Max  (340,1000)
++			&confInt["maxClock"], cpuFreqMin, cpuFreqMax, 664)));       // se pone a mano 660 en vez de cpuFreqMultiple, para OBTENER sólo Min o Max  (332,996)
  #endif
  	sd.addSetting(unique_ptr<MenuSetting>(new MenuSettingBool(
  			this, ts, tr["Output logs"],
@@ -36,7 +47,7 @@
  			this, ts, tr["Clock frequency"],
  			tr["CPU clock frequency for this link"],
 -			&linkClock, cpuFreqMin, confInt["maxClock"], 720)));    // se pone a mano 720 en vez de cpuFreqMultiple, para obtener sólo Min o Max  (360,1080)
-+			&linkClock, cpuFreqMin, confInt["maxClock"], 660)));    // se pone a mano 660 en vez de cpuFreqMultiple, para obtener sólo Min o Max  (340,1000)
++			&linkClock, cpuFreqMin, confInt["maxClock"], 664)));    // se pone a mano 660 en vez de cpuFreqMultiple, para obtener sólo Min o Max  (332,996)
  #endif
  		sd.addSetting(unique_ptr<MenuSetting>(new MenuSettingString(
  				this, ts, tr["Selector Filter"],
