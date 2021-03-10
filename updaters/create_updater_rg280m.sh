@@ -122,7 +122,7 @@ echo
 cat > update_rg280m/default.gcw0.desktop <<EOF
 [Desktop Entry]
 Name=OS update $VERSION
-Comment=RG280M ROGUE update $DATE
+Comment=RG280M ROGUE stock update $DATE
 Exec=update.sh
 Icon=rogue
 Terminal=true
@@ -132,7 +132,7 @@ Categories=applications;
 EOF
 
 # Create OPK.
-OPK_FILE=update_rg280m/rg280m-update-$VERSION-$DATE.opk
+OPK_FILE=update_rg280m/rg280m-stock-update-$VERSION-$DATE.opk
 mksquashfs \
 	update_rg280m/default.gcw0.desktop \
 	update_rg280m/rogue.png \

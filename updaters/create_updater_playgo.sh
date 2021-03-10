@@ -122,7 +122,7 @@ echo
 cat > update_PlayGo/default.gcw0.desktop <<EOF
 [Desktop Entry]
 Name=OS update $VERSION
-Comment=PlayGo ROGUE update $DATE
+Comment=PlayGo ROGUE stock update $DATE
 Exec=update.sh
 Icon=rogue
 Terminal=true
@@ -132,7 +132,7 @@ Categories=applications;
 EOF
 
 # Create OPK.
-OPK_FILE=update_PlayGo/PlayGo-update-$VERSION-$DATE.opk
+OPK_FILE=update_PlayGo/PlayGo-stock-update-$VERSION-$DATE.opk
 mksquashfs \
 	update_PlayGo/default.gcw0.desktop \
 	update_PlayGo/rogue.png \

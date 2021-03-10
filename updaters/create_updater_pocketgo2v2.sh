@@ -122,7 +122,7 @@ echo
 cat > update_PocketGo2v2/default.gcw0.desktop <<EOF
 [Desktop Entry]
 Name=OS update $VERSION
-Comment=POCKETGO2 v2 ROGUE update $DATE
+Comment=POCKETGO2 v2 ROGUE stock update $DATE
 Exec=update.sh
 Icon=rogue
 Terminal=true
@@ -132,7 +132,7 @@ Categories=applications;
 EOF
 
 # Create OPK.
-OPK_FILE=update_PocketGo2v2/pocketgo2v2-update-$VERSION-$DATE.opk
+OPK_FILE=update_PocketGo2v2/pocketgo2v2-stock-update-$VERSION-$DATE.opk
 mksquashfs \
 	update_PocketGo2v2/default.gcw0.desktop \
 	update_PocketGo2v2/rogue.png \
